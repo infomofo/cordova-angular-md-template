@@ -8,15 +8,17 @@
  *
  * Main module of the application.
  */
-angular
+var app = angular
   .module('yoAngularChromeApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
-  ])
+    'ngTouch',
+    'ngMaterial'
+  ]);
+app
   .config(function($compileProvider){
     $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|chrome-extension):/);
   })
@@ -34,3 +36,10 @@ angular
         redirectTo: '/'
       });
   });
+
+//app
+//  .controller('SidenavController', function($scope, $mdSidenav) {
+//    $scope.openLeftMenu = function() {
+//      $mdSidenav('left').toggle();
+//    };
+//  });
