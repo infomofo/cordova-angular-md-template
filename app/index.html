@@ -15,7 +15,6 @@
   <!-- build:css(.tmp) styles/main.css -->
   <link rel="stylesheet" href="styles/main.css">
   <link rel="stylesheet" href="styles/docs.css">
-  <link rel="stylesheet" href="bower_components/angular-material/themes/blue-grey-theme.css">
   <!-- endbuild -->
 </head>
 <body layout="row" md-theme="blue-grey" ng-app="yoAngularChromeApp">
@@ -24,40 +23,11 @@
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
   your browser</a> to improve your experience.</p>
 <![endif]-->
-  <md-sidenav md-component-id="left" class="md-sidenav-left md-whiteframe-z2" md-is-locked-open="$media('gt-sm')">
-    <md-content flex="" style="overflow: auto;" class="md-default-theme">
-      <div>
-        <button class="menu-item menu-title md-menu-item" aria-label="app">
-          App Section
-        </button>
-        <a class="menu-item menu-sub-item md-menu-item" ng-href="#/" md-ink-ripple="#bbb" >
-          <span>Home</span>
-        </a>
-        <a class="menu-item menu-sub-item md-menu-item" ng-href="#/about" md-ink-ripple="#bbb" >
-          <span>About</span>
-        </a>
-      </div>
-      <div>
-        <button class="menu-item menu-title md-menu-item" aria-label="demo">
-          Demo
-        </button>
-        <a class="menu-item menu-sub-item md-menu-item" ng-href="#/" md-ink-ripple="#bbb" >
-          <span>Home</span>
-        </a>
-      </div>
-    </md-content>
-  </md-sidenav>
+
+<div ng-include="'views/sidenav.html'"></div>
+
 <md-content flex>
-  <md-toolbar>
-    <h2 class="md-toolbar-tools">
-      <div>
-        <md-button ng-click="toggleLeft()" class="md-primary" hide-gt-sm>
-          <i class="fa fa-align-justify"></i>
-        </md-button>
-      </div>
-      <span>Toolbar</span>
-    </h2>
-  </md-toolbar>
+  <div ng-include="'views/toolbar.html'"></div>
   <div flex layout-fill layout-align="center center" ng-view=""></div>
 </md-content>
 <!-- build:js(.) scripts/oldieshim.js -->
