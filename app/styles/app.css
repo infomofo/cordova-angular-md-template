@@ -2,7 +2,7 @@
 Styling for the app in general
 */
 
-.toolbardemoScrollShrink .face {
+.toolbardemoScrollShrink md-list md-item .face {
   width: 48px;
   margin: 16px;
   border-radius: 48px;

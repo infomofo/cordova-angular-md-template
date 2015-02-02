@@ -1,6 +1,9 @@
-<md-content class="md-padding">
+<md-content class="md-padding" flex>
   <h3>Ways to display various messages to a user</h3>
 
+  <md-button class="md-fab md-fab-bottom-right" aria-label="Time">
+    <i class="fa fa-clock-o fa-2x"></i>
+  </md-button>
   <section layout="row" layout-align="center center">
     <md-button class="md-raised" style="margin: 1em;" ng-click="showAlertToast('Toasty!')">Toast</md-button>
     <md-button class="md-raised md-primary" style="margin: 1em;" ng-click="showUndoToastPersistent('Toasty!')">Toast with Action</md-button>
