@@ -1,43 +1,13 @@
 <md-sidenav md-component-id="left" class="md-sidenav-left md-whiteframe-z2" md-is-locked-open="$media('gt-sm')">
-  <md-list>
-    <md-item>
-      <md-item-content>
-        <div class="md-tile-left">
-          <i class="fa fa-camera-retro"></i>
-        </div>
-        <div class="md-tile-content">
-          <h3>Menu Item</h3>
-          <h4>Item</h4>
-          <p>
-            Notes
-          </p>
-        </div>
-      </md-item-content>
-    </md-item>
-    <md-item>
-      <md-item-content>
-        <div class="md-tile-left">
-          <i class="fa fa-site"></i>
-        </div>
-        <div class="md-tile-content">
-          <h3>Menu Item</h3>
-          <h4>Item</h4>
-          <p>
-            Notes
-          </p>
-        </div>
-      </md-item-content>
-    </md-item>
-  </md-list>
   <md-content flex="" style="overflow: auto;" class="md-default-theme">
     <div>
       <button class="menu-item menu-title md-menu-item" aria-label="app">
         App Section
       </button>
-      <a class="menu-item menu-sub-item md-menu-item" ng-href="#/" md-ink-ripple="#bbb" >
+      <a class="menu-item menu-sub-item md-menu-item" ng-click="go('/');" md-ink-ripple="#bbb" >
         <span>Home</span>
       </a>
-      <a class="menu-item menu-sub-item md-menu-item" ng-href="#/about" md-ink-ripple="#bbb" >
+      <a class="menu-item menu-sub-item md-menu-item" ng-click="go('/about');" md-ink-ripple="#bbb" >
         <span>About</span>
       </a>
     </div>
@@ -45,7 +15,7 @@
       <button class="menu-item menu-title md-menu-item" aria-label="demo">
         Demo
       </button>
-      <a class="menu-item menu-sub-item md-menu-item" ng-href="#/" md-ink-ripple="#bbb" >
+      <a class="menu-item menu-sub-item md-menu-item" ng-click="go('/')" md-ink-ripple="#bbb" >
         <span>Home</span>
       </a>
     </div>
