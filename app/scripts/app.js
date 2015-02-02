@@ -39,6 +39,8 @@ app
 
 app.run(function ($rootScope, $location, $mdSidenav, $mdToast) {
 
+  var searchActive = false;
+
   $rootScope.toggleSidenav = function() {
     //console.log("toggling left");
     $mdSidenav('left').toggle()
@@ -53,16 +55,22 @@ app.run(function ($rootScope, $location, $mdSidenav, $mdToast) {
 
     var path = $location.$$path;
     //tracker.sendAppView(path);
-    if (path != "/") {
+    if (path !== '/') {
       history.push($location.$$path);
     }
   });
 
+  var disableSearch = function() {
+    var searchBox = angular.element('#searchBox');
+    searchBox.blur();
+    searchActive = false;
+  };
+
   var backFunction = function() {
-    if (bxModel.searchActive) {
+    if (searchActive) {
       disableSearch();
     } else {
-      var prevUrl = history.length > 1 ? history.splice(-2)[0] : "/";
+      var prevUrl = history.length > 1 ? history.splice(-2)[0] : '/';
       $location.path(prevUrl);
     }
   };
@@ -81,15 +89,15 @@ app.run(function ($rootScope, $location, $mdSidenav, $mdToast) {
   };
 
   var onDeviceReady = function(){
-    document.addEventListener("backbutton", backButton, false);
-    document.addEventListener("resume", onResume, false);
-    document.addEventListener("online", onResume, false);
+    document.addEventListener('backbutton', backButton, false);
+    document.addEventListener('resume', onResume, false);
+    document.addEventListener('online', onResume, false);
     // detect application touches and emit an event on rootscope:
-    window.addEventListener("statusTap", function() {
+    window.addEventListener('statusTap', function() {
       $rootScope.$emit('NavClicked');
     });
   };
-  document.addEventListener("deviceready", onDeviceReady, false);
+  document.addEventListener('deviceready', onDeviceReady, false);
 
   /**
    * Clears the known history
@@ -155,7 +163,7 @@ app.run(function ($rootScope, $location, $mdSidenav, $mdToast) {
     var domElement = document.getElementById('scrollcontainer');
     domElement.style.overflow = 'hidden';
     // wait for any current momentum scrolling to finish and then jump to top
-    $("#scrollcontainer").animate({scrollTop: 0}, "fast");
+    //$('#scrollcontainer').animate({scrollTop: 0}, 'fast');
     domElement.style.overflow = '';
   });
 
@@ -163,7 +171,7 @@ app.run(function ($rootScope, $location, $mdSidenav, $mdToast) {
    * Displays the search box element on the toolbar
    */
   $rootScope.showSearch = function() {
-    var searchBox = angular.element("#searchBox")
+    var searchBox = angular.element('#searchBox');
     searchBox.focus();
   };
 
