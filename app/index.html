@@ -25,11 +25,13 @@
 <![endif]-->
 
 <div ng-include="'views/sidenav.html'"></div>
+<div layout="column" layout-fill>
+<div ng-include="'views/toolbar.html'"></div>
+<md-content flex class="md-padding">
 
-<md-content flex>
-  <div ng-include="'views/toolbar.html'"></div>
   <div flex layout-fill layout-align="center center" ng-view=""></div>
 </md-content>
+</div>
 <!-- build:js(.) scripts/oldieshim.js -->
 <!--[if lt IE 9]>
 <script src="bower_components/es5-shim/es5-shim.js"></script>
