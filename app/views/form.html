@@ -15,9 +15,10 @@
     <md-switch aria-label="Switch 1" ng-model="data.cb1">
       Switch 1: {{data.cb1}}
     </md-switch>
-    <md-checkbox ng-model="data.cb2" aria-label="Checkbox 1" flex>
+    <span layout="row" flex layout-align="start center">
+      <md-checkbox ng-model="data.cb2" aria-label="Checkbox 1"></md-checkbox>
       Checkbox 1: {{ data.cb2 }}
-    </md-checkbox>
+    </span>
   </div>
   <div layout="column">
     <p>Selected Value: <span class="radioValue">{{ data.group1 }}</span> </p>

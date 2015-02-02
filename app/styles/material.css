@@ -1,0 +1,8 @@
+/*
+  Suggestions for tweaks when using material design on mobile
+*/
+
+/* Several interacted elements get dotted borders after interaction, which is not expected on mobile devices */
+md-radio-group {
+  border:none
+}

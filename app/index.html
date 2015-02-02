@@ -13,11 +13,12 @@
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:css(.tmp) styles/main.css -->
+  <link rel="stylesheet" href="styles/material.css">
+  <link rel="stylesheet" href="styles/app.css">
   <link rel="stylesheet" href="styles/main.css">
-  <link rel="stylesheet" href="styles/docs.css">
   <!-- endbuild -->
 </head>
-<body layout="row" md-theme="green" ng-app="yoAngularChromeApp">
+<body layout="row" ng-app="yoAngularChromeApp">
 
 <!--[if lt IE 7]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
@@ -25,10 +26,10 @@
 <![endif]-->
 
 <div ng-include="'views/sidenav.html'"></div>
-<div layout="column" layout-fill style="padding-bottom: 15px;">
+<div layout="column" layout-fill flex>
   <div ng-include="'views/toolbar.html'"></div>
   <md-content>
-    <div flex layout-fill layout-align="center center" ng-view=""></div>
+    <div layout-align="center center" ng-view=""></div>
   </md-content>
 </div>
 <!-- build:js(.) scripts/oldieshim.js -->
@@ -48,7 +49,6 @@
 <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
 <script src="bower_components/angular-touch/angular-touch.js"></script>
 <script src="bower_components/angular-aria/angular-aria.js"></script>
-<script src="bower_components/hammerjs/hammer.js"></script>
 <script src="bower_components/angular-material/angular-material.js"></script>
 <!-- endbower -->
 <!-- endbuild -->

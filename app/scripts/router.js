@@ -14,11 +14,17 @@ angular.module('yoAngularChromeApp')
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       })
-      .when('/scrollshrink', {
-        templateUrl: 'views/scrollshrink.html'
+      .when('/list', {
+        templateUrl: 'views/list.html'
       })
       .when('/form', {
         templateUrl: 'views/form.html'
+      })
+      .when('/dialog', {
+        templateUrl: 'views/dialog.html'
+      })
+      .when('/subheader', {
+        templateUrl: 'views/list.html'
       })
       .otherwise({
         redirectTo: '/'

@@ -24,6 +24,7 @@ app.run(function ($rootScope, $location, $mdSidenav, $mdToast) {
   var searchActive = false;
 
   $rootScope.toggleSidenav = function() {
+    $mdToast.hide();
     //console.log("toggling left");
     $mdSidenav('left').toggle()
       .then(function(){
@@ -225,3 +226,10 @@ app.run(function ($rootScope, $location, $mdSidenav, $mdToast) {
     });
   };
 });
+
+app
+  .config(function($mdThemingProvider) {
+    $mdThemingProvider.theme('default')
+      .primaryPalette('green')
+      .accentPalette('orange');
+  });
