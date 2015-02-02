@@ -27,7 +27,9 @@
 <div ng-include="'views/sidenav.html'"></div>
 <div layout="column" layout-fill style="padding-bottom: 15px;">
   <div ng-include="'views/toolbar.html'"></div>
-  <div flex layout-fill layout-align="center center" ng-view=""></div>
+  <md-content>
+    <div flex layout-fill layout-align="center center" ng-view=""></div>
+  </md-content>
 </div>
 <!-- build:js(.) scripts/oldieshim.js -->
 <!--[if lt IE 9]>

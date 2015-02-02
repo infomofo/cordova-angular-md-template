@@ -17,6 +17,9 @@ angular.module('yoAngularChromeApp')
       .when('/scrollshrink', {
         templateUrl: 'views/scrollshrink.html'
       })
+      .when('/form', {
+        templateUrl: 'views/form.html'
+      })
       .otherwise({
         redirectTo: '/'
       });

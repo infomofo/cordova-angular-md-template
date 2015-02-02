@@ -1,0 +1,35 @@
+<md-content class="md-padding">
+  <h3>Various form elements</h3>
+
+  <div layout="row">
+    <md-input-container flex>
+      <label>Text input</label>
+      <input/>
+    </md-input-container>
+    <md-input-container>
+      <label>Number input</label>
+      <input type="number"/>
+    </md-input-container>
+  </div>
+  <div layout="row" layout-fill>
+    <md-switch aria-label="Switch 1" ng-model="data.cb1">
+      Switch 1: {{data.cb1}}
+    </md-switch>
+    <md-checkbox ng-model="data.cb2" aria-label="Checkbox 1" flex>
+      Checkbox 1: {{ data.cb2 }}
+    </md-checkbox>
+  </div>
+  <div layout="column">
+    <p>Selected Value: <span class="radioValue">{{ data.group1 }}</span> </p>
+    <md-radio-group ng-model="data.group1">
+      <md-radio-button value="Apple" aria-label="Label 1">Apple</md-radio-button>
+      <md-radio-button value="Banana"> Banana </md-radio-button>
+      <md-radio-button value="Mango" aria-label="Label 3">Mango</md-radio-button>
+    </md-radio-group>
+  </div>
+  <div layout="column">
+    <h3>Rating: {{rating}}/5</h3>
+    <md-slider md-discrete ng-model="rating" step="1" min="1" max="5" aria-label="rating">
+    </md-slider>
+  </div>
+</md-content>
