@@ -1,4 +1,6 @@
-app
+'use strict';
+
+angular.module('yoAngularChromeApp')
   .config(function($compileProvider){
     $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|chrome-extension):/);
   })
@@ -12,7 +14,11 @@ app
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       })
+      .when('/scrollshrink', {
+        templateUrl: 'views/scrollshrink.html'
+      })
       .otherwise({
         redirectTo: '/'
       });
   });
+

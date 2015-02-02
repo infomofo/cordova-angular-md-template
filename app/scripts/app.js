@@ -19,7 +19,6 @@ var app = angular
     'ngMaterial'
   ]);
 
-
 app.run(function ($rootScope, $location, $mdSidenav, $mdToast) {
 
   var searchActive = false;

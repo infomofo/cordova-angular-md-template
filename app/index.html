@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>MyApp</title>
   <meta name="description" content="">
-  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
   <!-- build:css(.) styles/vendor.css -->
   <!-- bower:css -->
@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="styles/docs.css">
   <!-- endbuild -->
 </head>
-<body layout="row" md-theme="blue-grey" ng-app="yoAngularChromeApp">
+<body layout="row" md-theme="green" ng-app="yoAngularChromeApp">
 
 <!--[if lt IE 7]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
@@ -25,12 +25,9 @@
 <![endif]-->
 
 <div ng-include="'views/sidenav.html'"></div>
-<div layout="column" layout-fill>
-<div ng-include="'views/toolbar.html'"></div>
-<md-content flex class="md-padding">
-
+<div layout="column" layout-fill style="padding-bottom: 15px;">
+  <div ng-include="'views/toolbar.html'"></div>
   <div flex layout-fill layout-align="center center" ng-view=""></div>
-</md-content>
 </div>
 <!-- build:js(.) scripts/oldieshim.js -->
 <!--[if lt IE 9]>
