@@ -19,7 +19,6 @@ module.exports = function (grunt) {
   var appConfig = {
     app: require('./bower.json').appPath || 'app',
     dist: 'dist',
-    chromeapp: 'chromeapp',
     cordova: 'cordova'
   };
 
@@ -383,6 +382,15 @@ module.exports = function (grunt) {
                   cwd: '<%= yeoman.cordova %>'
               }
           }
+      },
+      cordovaPlatformInstallIos: {
+        command: 'cordova platform add ios',
+        options: {
+          stderr: false,
+          execOptions: {
+            cwd: '<%= yeoman.cordova %>'
+          }
+        }
       }
     }
   });
@@ -439,5 +447,12 @@ module.exports = function (grunt) {
     'build'
   ]);
 
-  grunt.registerTask('cordova', ['build', 'shell:cordovaClean', 'shell:cordovaCreate', 'shell:cordovaPlatformInstallAndroid']);
+  grunt.registerTask('cordova',
+    [
+      'build',
+      'shell:cordovaClean',
+      'shell:cordovaCreate',
+      'shell:cordovaPlatformInstallAndroid',
+      'shell:cordovaPlatformInstallIos'
+    ]);
 };
