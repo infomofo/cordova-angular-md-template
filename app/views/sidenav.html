@@ -1,104 +1,14 @@
-<md-sidenav md-component-id="left" class="md-sidenav-left md-whiteframe-z3 md-primary md-hue-1" md-is-locked-open="$media('gt-md')">
-  <md-content flex=>
-    <section>
-      <md-subheader>About</md-subheader>
-      <md-list>
-        <md-item>
-          <md-item-content layout="row">
-            <a class="menu-item menu-sub-item md-menu-item" ng-click="go('/');" md-ink-ripple="#bbb" layout="row" layout-align="start center">
-              <div class="md-tile-right" layout-align="center center">
-                <i class="fa fa-fw fa-2x fa-home"></i>
-              </div>
-              <div class="md-tile-content" layout-align="start center">
-                <h3>Home</h3>
-                <p>
-                  The application's landing screen
-                </p>
-              </div>
-            </a>
-          </md-item-content>
-        </md-item>
-        <md-item>
-          <md-item-content layout="row">
-            <a class="menu-item menu-sub-item md-menu-item" ng-click="go('/about');" md-ink-ripple="#bbb" layout="row" layout-align="start center">
-              <div class="md-tile-right" layout-align="center center">
-                <i class="fa fa-fw fa-2x fa-info-circle"></i>
-              </div>
-              <div class="md-tile-content" layout-align="start center">
-                <h3>About</h3>
-                <p>
-                  About this app
-                </p>
-              </div>
-            </a>
-          </md-item-content>
-        </md-item>
-        <md-item>
-          <md-item-content layout="row">
-            <a class="menu-item menu-sub-item md-menu-item" ng-click="go('/about');" md-ink-ripple="#bbb" layout="row" layout-align="start center">
-              <div class="md-tile-right" layout-align="center center">
-                <i class="fa fa-fw fa-2x fa-cogs"></i>
-              </div>
-              <div class="md-tile-content" layout-align="start center">
-                <h3>Settings</h3>
-                <p>
-                  A sample settings screen
-                </p>
-              </div>
-            </a>
-          </md-item-content>
-        </md-item>
-      </md-list>
-    </section>
-    <section>
-      <md-subheader>Demo</md-subheader>
-      <md-list>
-        <md-item>
-          <md-item-content layout="row">
-            <a class="menu-item menu-sub-item md-menu-item" ng-click="go('/dialog');" md-ink-ripple="#bbb" layout="row" layout-align="start center">
-              <div class="md-tile-right" layout-align="center center">
-                <i class="fa fa-fw fa-2x fa-info-circle"></i>
-              </div>
-              <div class="md-tile-content" layout-align="start center">
-                <h3>Dialog</h3>
-                <p>
-                  Various methods of alerting users to information
-                </p>
-              </div>
-            </a>
-          </md-item-content>
-        </md-item>
-        <md-item>
-          <md-item-content layout="row">
-            <a class="menu-item menu-sub-item md-menu-item" ng-click="go('/form');" md-ink-ripple="#bbb" layout="row" layout-align="start center">
-              <div class="md-tile-right" layout-align="center center">
-                <i class="fa fa-fw fa-2x fa-sliders"></i>
-              </div>
-              <div class="md-tile-content" layout-align="start center">
-                <h3>Forms</h3>
-                <p>
-                  Demonstrations of input elements
-                </p>
-              </div>
-            </a>
-          </md-item-content>
-        </md-item>
-        <md-item>
-          <md-item-content layout="row">
-            <a class="menu-item menu-sub-item md-menu-item" ng-click="go('/list');" md-ink-ripple="#bbb" layout="row" layout-align="start center">
-              <div class="md-tile-right" layout-align="center center">
-                <i class="fa fa-fw fa-2x fa-th-list"></i>
-              </div>
-              <div class="md-tile-content" layout-align="start center">
-                <h3>List</h3>
-                <p>
-                  Demonstration of a list of content
-                </p>
-              </div>
-            </a>
-          </md-item-content>
-        </md-item>
-      </md-list>
-    </section>
+<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$media('gt-md')">
+  <md-toolbar class="md-theme-indigo">
+    <h1 class="md-toolbar-tools">Sidenav Left</h1>
+  </md-toolbar>
+  <md-content class="md-padding">
+    <md-button ng-click="closeSideNav()" class="md-primary" hide-gt-md>
+      Close Sidenav Left
+    </md-button>
+    <p hide-md show-gt-md>
+      This sidenav is locked open on your device. To go back to the default behavior,
+      narrow your display.
+    </p>
   </md-content>
 </md-sidenav>
