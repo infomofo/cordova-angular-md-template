@@ -19,7 +19,8 @@ module.exports = function (grunt) {
   var appConfig = {
     app: require('./bower.json').appPath || 'app',
     dist: 'dist',
-    cordova: 'cordova'
+    cordova: 'cordova',
+    appName: 'YoAngularChrome'
   };
 
   // Define the configuration for all the tasks
@@ -363,7 +364,7 @@ module.exports = function (grunt) {
         command: 'rm -Rf <%= yeoman.cordova %>'
       },
       cordovaCreate: {
-          command: 'cordova create <%= yeoman.cordova %> com.sample.YoAngularCordova "YoAngularCordova" --copy-from=<%= yeoman.dist %>'
+          command: 'cordova create <%= yeoman.cordova %> com.sample.<%= yeoman.appName %> "<%= yeoman.appName %>" --copy-from=<%= yeoman.dist %>'
       },
       cordovaPrepare: {
           command: 'cordova prepare',
@@ -395,6 +396,47 @@ module.exports = function (grunt) {
     }
   });
 
+  var xpath = require('xpath');
+  var dom = require('xmldom').DOMParser;
+  grunt.registerTask('addCordovaPreferences', function(){
+    var cordovaConfig = appConfig.cordova + '/config.xml';
+    var xml = grunt.file.read(cordovaConfig);
+    var doc = new dom().parseFromString(xml);
+
+    var node = doc.getElementsByTagName('widget')[0];
+
+    //var author = node.getElementsByTagName("author")[0];
+    //author.setAttribute('email','contact@example.com');
+    //author.setAttribute('href','http://example.com');
+    //author.nodeValue='contact@example.com';
+
+    // grunt.log.writeln('Adding to: ' + node);
+    var KeyboardShrinksView = doc.createElement('preference');
+    KeyboardShrinksView.setAttribute('name', 'KeyboardShrinksView');
+    KeyboardShrinksView.setAttribute('value', true);
+    grunt.log.writeln('Adding: ' + KeyboardShrinksView);
+    node.appendChild(KeyboardShrinksView);
+
+    var StatusBarOverlaysWebView = doc.createElement('preference');
+    StatusBarOverlaysWebView.setAttribute('name', 'StatusBarOverlaysWebView');
+    StatusBarOverlaysWebView.setAttribute('value', false);
+    grunt.log.writeln('Adding: ' + StatusBarOverlaysWebView);
+    node.appendChild(StatusBarOverlaysWebView);
+
+    var StatusBarBackgroundColor = doc.createElement('preference');
+    StatusBarBackgroundColor.setAttribute('name', 'StatusBarBackgroundColor');
+    StatusBarBackgroundColor.setAttribute('value', '#388E3C'); // Should be the 700 color for your main color http://www.google.com/design/spec/style/color.html#color-color-palette
+    grunt.log.writeln('Adding: ' + StatusBarBackgroundColor);
+    node.appendChild(StatusBarBackgroundColor);
+
+    var KeyboardDisplayRequiresUserAction = doc.createElement('preference');
+    KeyboardDisplayRequiresUserAction.setAttribute('name', 'KeyboardDisplayRequiresUserAction');
+    KeyboardDisplayRequiresUserAction.setAttribute('value', false);
+    grunt.log.writeln('Adding: ' + KeyboardDisplayRequiresUserAction);
+    node.appendChild(KeyboardDisplayRequiresUserAction);
+
+    grunt.file.write(cordovaConfig, doc);
+  });
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {
@@ -452,6 +494,7 @@ module.exports = function (grunt) {
       'build',
       'shell:cordovaClean',
       'shell:cordovaCreate',
+      'addCordovaPreferences',
       'shell:cordovaPlatformInstallAndroid',
       'shell:cordovaPlatformInstallIos'
     ]);

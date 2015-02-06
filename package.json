@@ -1,7 +1,11 @@
 {
   "name": "yoangularchrome",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "grunt-bower-task": "^0.4.0",
+    "xmldom": "^0.1.19",
+    "xpath": "0.0.9"
+  },
   "devDependencies": {
     "grunt": "^0.4.1",
     "grunt-autoprefixer": "^0.7.3",
