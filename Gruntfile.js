@@ -20,7 +20,7 @@ module.exports = function (grunt) {
     app: require('./bower.json').appPath || 'app',
     dist: 'dist',
     cordova: 'cordova',
-    appName: 'YoAngularChrome'
+    appName: 'YoAngularCordova'
   };
 
   // Define the configuration for all the tasks
@@ -323,6 +323,7 @@ module.exports = function (grunt) {
             '.htaccess',
             '*.html',
             'views/{,*/}*.html',
+            'template/{,*/}*.html',
             'images/{,*/}*.{webp}',
             'fonts/{,*/}*.*'
           ]
