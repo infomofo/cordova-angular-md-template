@@ -406,12 +406,12 @@ module.exports = function (grunt) {
     }
   });
 
-  var xpath = require('xpath');
-  var dom = require('xmldom').DOMParser;
+  //var xpath = require('xpath');
+  var DOMParser = require('xmldom').DOMParser;
   grunt.registerTask('addCordovaPreferences', function(){
     var cordovaConfig = appConfig.cordova + '/config.xml';
     var xml = grunt.file.read(cordovaConfig);
-    var doc = new dom().parseFromString(xml);
+    var doc = new DOMParser().parseFromString(xml);
 
     var node = doc.getElementsByTagName('widget')[0];
 
@@ -444,6 +444,12 @@ module.exports = function (grunt) {
     KeyboardDisplayRequiresUserAction.setAttribute('value', false);
     grunt.log.writeln('Adding: ' + KeyboardDisplayRequiresUserAction);
     node.appendChild(KeyboardDisplayRequiresUserAction);
+
+    var DisallowOverscroll = doc.createElement('preference');
+    DisallowOverscroll.setAttribute('name', 'DisallowOverscroll');
+    DisallowOverscroll.setAttribute('value', true);
+    grunt.log.writeln('Adding: ' + DisallowOverscroll);
+    node.appendChild(DisallowOverscroll);
 
     grunt.file.write(cordovaConfig, doc);
   });

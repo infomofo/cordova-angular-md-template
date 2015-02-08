@@ -17,7 +17,7 @@ var app = angular
     'ngSanitize',
     'ngTouch',
     'ngMaterial'
-  ])
+  ]);
 
 app.run(function ($rootScope, $location, $mdSidenav, $mdToast) {
 
@@ -25,10 +25,10 @@ app.run(function ($rootScope, $location, $mdSidenav, $mdToast) {
 
   $rootScope.openSidenav = function() {
     $mdToast.hide();
-    console.log("toggling left");
+    console.log('toggling left');
     $mdSidenav('left').open()
       .then(function(){
-        console.debug("toggle left is done");
+        console.debug('toggle left is done');
       });
   };
 
