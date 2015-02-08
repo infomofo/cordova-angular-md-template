@@ -8,13 +8,17 @@ Follow the commit history of this project to learn how to build a yeoman angular
 Sample screenshots
 ------------------
 
-![A Demo Material-Angular App running in Grunt](docs/images/GruntSlideNav.png)
-![A Demo Material-Angular App running on iOS](docs/images/iPhoneSlideNav.png)
-![A Demo Material-Angular App running on Android](docs/images/AndroidSlideNav.png)
-
+### Grunt
+![A Demo Material-Angular App running in Grunt](docs/images/GruntSlideNav.png))
 ![A Form running in Grunt](docs/images/GruntForm.png)
-![A Form running in Android](docs/images/AndroidFormNumberInput.png)
+
+### iPhone
+![A Demo Material-Angular App running on iOS](docs/images/iPhoneAppSlideNav.png)
 ![A Form running on iOS](docs/images/iPhoneForm.png)
+
+### Android
+![A Demo Material-Angular App running on Android](docs/images/AndroidAppSlideNav.png)
+![A Form running in Android](docs/images/AndroidFormNumberInput.png)
 
 
 To build a cordova app
