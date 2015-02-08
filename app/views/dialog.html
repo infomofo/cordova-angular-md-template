@@ -1,8 +1,11 @@
 <md-content class="md-padding" flex layout="column" layout-margin>
   <h3>Ways to display various messages to a user</h3>
 
+  <section layout="row" layout-align="center center" class="md-padding">
+    <md-button class="md-raised md-primary md-padding" ng-click="showAlertToast('Toasty!')">Toast</md-button>
+    <md-button class="md-raised md-primary" ng-click="showUndoToastPersistent('Toasty!')">Toast with Action</md-button>
+  </section>
   <section layout="row" layout-align="center center">
-    <md-button class="md-raised" style="margin: 1em;" ng-click="showAlertToast('Toasty!')">Toast</md-button>
-    <md-button class="md-raised md-primary" style="margin: 1em;" ng-click="showUndoToastPersistent('Toasty!')">Toast with Action</md-button>
+    <md-button class="md-raised md-primary" ng-click="showAlertDialog('AlertTitle', 'Alert Message!', $event)">Dialog</md-button>
   </section>
 </md-content>
