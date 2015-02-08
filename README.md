@@ -1,7 +1,7 @@
-YO ANGULAR CHROME
+YO ANGULAR CORDOVA
 =================
 
-Follow the commit history of this project to learn how to build a yeoman angular chrome app.
+Follow the commit history of this project to learn how to build a yeoman angular cordova app.
 
 [![Build Status](https://travis-ci.org/infomofo/cordova-angular-md-template.svg?branch=master)](https://travis-ci.org/infomofo/cordova-angular-md-template)
 

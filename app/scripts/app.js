@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc overview
- * @name yoAngularChromeApp
+ * @name yoAngularCordovaApp
  * @description
- * # yoAngularChromeApp
+ * # yoAngularCordovaApp
  *
  * Main module of the application.
  */
 var app = angular
-  .module('yoAngularChromeApp', [
+  .module('yoAngularCordovaApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',

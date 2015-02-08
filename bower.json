@@ -1,5 +1,5 @@
 {
-  "name": "yo-angular-chrome",
+  "name": "yo-angular-cordova",
   "version": "0.0.0",
   "dependencies": {
     "angular": "1.3.11",
