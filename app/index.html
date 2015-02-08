@@ -28,8 +28,8 @@
 <div ng-include="'views/sidenav.html'"></div>
 <div layout="column" layout-fill flex>
   <div ng-include="'views/toolbar.html'"></div>
-  <md-content>
-    <div layout-align="center center" ng-view=""></div>
+  <md-content layout="column" layout-fill flex>
+    <div layout-align="center center" ng-view="" layout-fill flex></div>
   </md-content>
 </div>
 <!-- build:js(.) scripts/oldieshim.js -->

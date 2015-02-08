@@ -23,8 +23,8 @@ angular.module('yoAngularChromeApp')
       .when('/dialog', {
         templateUrl: 'views/dialog.html'
       })
-      .when('/subheader', {
-        templateUrl: 'views/list.html'
+      .when('/tabs', {
+        templateUrl: 'views/tabs.html'
       })
       .otherwise({
         redirectTo: '/'
