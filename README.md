@@ -9,7 +9,7 @@ Sample screenshots
 ------------------
 
 ### Grunt
-![A Demo Material-Angular App running in Grunt](docs/images/GruntSlideNav.png))
+![A Demo Material-Angular App running in Grunt](docs/images/GruntSlideNav.png)
 ![A Form running in Grunt](docs/images/GruntForm.png)
 
 ### iPhone
