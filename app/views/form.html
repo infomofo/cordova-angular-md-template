@@ -1,6 +1,6 @@
 <md-content class="md-padding">
   <h3>Various form elements</h3>
-  <md-button class="md-fab md-fab-bottom-right" aria-label="Time">
+  <md-button class="md-fab md-fab-bottom-right md-accent" aria-label="Time">
     <i class="fa fa-clock-o fa-2x"></i>
   </md-button>
 
@@ -13,6 +13,12 @@
       <label>Number input</label>
       <input type="number"/>
     </md-input-container>
+  </div>
+  <div layout="row">
+  <md-input-container flex>
+    <label>Textarea input</label>
+    <textarea columns="1" ></textarea>
+  </md-input-container>
   </div>
   <div layout="row" layout-fill>
     <md-switch aria-label="Switch 1" ng-model="data.cb1">

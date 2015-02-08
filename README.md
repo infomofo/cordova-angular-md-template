@@ -5,6 +5,18 @@ Follow the commit history of this project to learn how to build a yeoman angular
 
 [![Build Status](https://travis-ci.org/infomofo/cordova-angular-md-template.svg?branch=master)](https://travis-ci.org/infomofo/cordova-angular-md-template)
 
+Sample screenshots
+------------------
+
+![A Demo Material-Angular App running in Grunt](docs/images/GruntSlideNav.png)
+![A Demo Material-Angular App running on iOS](docs/images/iPhoneSlideNav.png)
+![A Demo Material-Angular App running on Android](docs/images/AndroidSlideNav.png)
+
+![A Form running in Grunt](docs/images/GruntForm.png)
+![A Form running in Android](docs/images/AndroidFormNumberInput.png)
+![A Form running on iOS](docs/images/iPhoneForm.png)
+
+
 To build a cordova app
 ---------------------
 
@@ -37,6 +49,12 @@ Directory Structure
 * package.json - contains the node dependencies
 * .bower.json - contains the bower dependencies
 * Gruntfile.js - contains the build process for this application
+
+Modifications
+-------------
+
+Additions to the app can be made with the standard [yeoman generator-angular](https://github.com/yeoman/generator-angular)
+commands.  For example, a new route, tab, and controller can be added with the command <code>yo angular:route myroute</code>
 
 Generated files not in git
 --------------------------
