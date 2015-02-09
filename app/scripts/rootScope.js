@@ -6,18 +6,7 @@
  * This file is for all functions that need to be globally accessible or access shared memory between routes.
  */
 angular.module('yoAngularCordovaApp')
-  .run(function ($rootScope, $location, $mdSidenav, $mdToast) {
-
-  var searchActive = false;
-
-  $rootScope.openSidenav = function() {
-    $mdToast.hide();
-    console.log('toggling left');
-    $mdSidenav('left').open()
-      .then(function(){
-        console.debug('toggle left is done');
-      });
-  };
+  .run(function ($rootScope, $location, $mdToast, $mdSidenav) {
 
   var history = [];
 
@@ -30,19 +19,9 @@ angular.module('yoAngularCordovaApp')
     }
   });
 
-  var disableSearch = function() {
-    var searchBox = angular.element('#searchBox');
-    searchBox.blur();
-    searchActive = false;
-  };
-
   var backFunction = function() {
-    if (searchActive) {
-      disableSearch();
-    } else {
-      var prevUrl = history.length > 1 ? history.splice(-2)[0] : '/';
-      $location.path(prevUrl);
-    }
+    var prevUrl = history.length > 1 ? history.splice(-2)[0] : '/';
+    $location.path(prevUrl);
   };
 
   $rootScope.backFunction = function () {
@@ -93,27 +72,6 @@ angular.module('yoAngularCordovaApp')
   };
 
   /**
-   * Closes the mdSidenav and handles any related behavior
-   */
-  $rootScope.closeSideNav = function(){
-    $mdSidenav('left').close()
-      .then(function(){
-        //console.debug("toggle left is done");
-      });
-  };
-
-  /**
-   * A replacement for the sidenav toggle button if it is replaced with a hamburger action.
-   */
-  $rootScope.handleHamburger = function() {
-    if ($rootScope.isHistoryEmpty()) {
-      $rootScope.toggleSideNav();
-    } else {
-      $rootScope.backFunction(true);
-    }
-  };
-
-  /**
    * This function should be called to change views- this will retain history and encapsulate any other behaviors.
    * @param url
    */
@@ -121,7 +79,10 @@ angular.module('yoAngularCordovaApp')
     // Hide any active toasts when the route changes
     $mdToast.hide();
 
-    $rootScope.closeSideNav();
+    $mdSidenav('left').close()
+      .then(function(){
+        //console.debug("toggle left is done");
+      });
     $location.path(url);
   };
 
@@ -136,80 +97,4 @@ angular.module('yoAngularCordovaApp')
     //$('#scrollcontainer').animate({scrollTop: 0}, 'fast');
     domElement.style.overflow = '';
   });
-
-  /**
-   * Displays the search box element on the toolbar
-   */
-  $rootScope.showSearch = function() {
-    var searchBox = angular.element('#searchBox');
-    searchBox.focus();
-  };
-
-  /**
-   * Displays an alert toast in the bottom right that disappears after 3 seconds
-   *
-   * Suitable for displaying short unactionable messages to the user
-   *
-   * @param message The alert message to display to the user
-   */
-  $rootScope.showAlertToast = function(message) {
-    var toast = $mdToast.simple()
-      .content(message)
-      .highlightAction(false)
-      .position('bottom right')
-      .hideDelay(2000);
-    $mdToast.show(toast);
-  };
-
-  /**
-   * Displays an alert toast in the bottom right that disappears when dismissed by the user
-   *
-   * Suitable for displaying short unactionable messages to the user
-   *
-   * @param message The alert message to display to the user
-   */
-  $rootScope.showAlertToastPersistent = function(message) {
-    var toast = $mdToast.simple()
-      .content(message)
-      .highlightAction(false)
-      .position('bottom right')
-      .hideDelay(0);
-    $mdToast.show(toast);
-  };
-
-  /**
-   * Displays an undoable toast in the bottom right that disappears after 3 seconds
-   *
-   * @param message the message to display to the user
-   * @param callback the function to call when the undo action is clicked
-   */
-  $rootScope.showUndoToast = function(message, callback) {
-    var toast = $mdToast.simple()
-      .content(message)
-      .action('undo')
-      .highlightAction(false)
-      .position('bottom right')
-      .hideDelay(2000);
-    $mdToast.show(toast).then(function() {
-      callback(true);
-    });
-  };
-
-  /**
-   * Displays an undoable toast in the bottom right that disappears when dismissed by the user
-   *
-   * @param message the message to display to the user
-   * @param callback the function to call when the undo action is clicked
-   */
-  $rootScope.showUndoToastPersistent = function(message, callback) {
-    var toast = $mdToast.simple()
-      .content(message)
-      .action('undo')
-      .highlightAction(false)
-      .position('bottom right')
-      .hideDelay(0);
-    $mdToast.show(toast).then(function() {
-      callback(true);
-    });
-  };
 });
