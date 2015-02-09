@@ -18,7 +18,6 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'bower_components/hammerjs/hammer.js',
       'bower_components/angular/angular.js',
       'bower_components/angular-mocks/angular-mocks.js',
       'bower_components/angular-animate/angular-animate.js',
@@ -49,11 +48,13 @@ module.exports = function(config) {
     // - PhantomJS
     // - IE (only Windows)
     browsers: [
+      //'Chrome',
       'PhantomJS'
     ],
 
     // Which plugins to enable
     plugins: [
+      //'karma-chrome-launcher',
       'karma-phantomjs-launcher',
       'karma-jasmine'
     ],

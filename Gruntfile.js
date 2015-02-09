@@ -476,6 +476,7 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('test', [
+    'bower:install',
     'clean:server',
     'concurrent:test',
     'autoprefixer',
