@@ -5,36 +5,49 @@ describe('rootScope', function () {
   // load the controller's module
   beforeEach(module('yoAngularCordovaApp'));
 
-  var scope, rootscope;
-
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
-    scope = $rootScope.$new();
-    rootscope = $rootScope;
+  beforeEach(inject(function ($httpBackend) {
+    $httpBackend.when('GET', 'views/about.html').respond('about');
+    $httpBackend.when('GET', 'views/list.html').respond('list');
+    $httpBackend.when('GET', 'views/main.html').respond('main');
   }));
 
 
   it('should obey history logic', function () {
-    expect(scope.isHistoryEmpty()).toBe(true);
-    expect(scope.isHistory()).toBe(false);
 
-    scope.go('/about');
-    rootscope.$broadcast('$routeChangeSuccess', {});
-    //expect(scope.isHistory()).toBe(true);
-    //expect(scope.isHistoryEmpty()).toBe(false);
+    inject(function($route, $location, $rootScope) {
+      expect($rootScope.isHistoryEmpty()).toBe(true);
+      expect($rootScope.isHistory()).toBe(false);
+      $rootScope.go('/about');
+      $rootScope.$digest();
+      expect($route.current.controller).toBe('AboutCtrl');
+      expect($route.current.templateUrl).toBe('views/about.html');
+      expect($route.current.originalPath).toBe('/about');
+      expect($rootScope.isHistoryEmpty()).toBe(true);
+      expect($rootScope.isHistory()).toBe(false);
 
-    scope.backFunction();
-    expect(scope.isHistoryEmpty()).toBe(true);
-    expect(scope.isHistory()).toBe(false);
+      $rootScope.go('/list');
+      $rootScope.$digest();
+      expect($route.current.templateUrl).toBe('views/list.html');
+      expect($route.current.originalPath).toBe('/list');
 
-    scope.go('/about');
-    rootscope.$broadcast('$routeChangeSuccess', {});
-    //expect(scope.isHistory()).toBe(true);
-    //expect(scope.isHistoryEmpty()).toBe(false);
+      $rootScope.backFunction();
+      $rootScope.$digest();
+      expect($route.current.controller).toBe('MainCtrl');
+      expect($route.current.templateUrl).toBe('views/main.html');
+      expect($route.current.originalPath).toBe('/');
+      expect($rootScope.isHistoryEmpty()).toBe(true);
+      expect($rootScope.isHistory()).toBe(false);
 
-    scope.clearHistory();
-    expect(scope.isHistoryEmpty()).toBe(true);
-    expect(scope.isHistory()).toBe(false);
+      $rootScope.go('/list');
+      $rootScope.$digest();
+      expect($route.current.templateUrl).toBe('views/list.html');
+      expect($route.current.originalPath).toBe('/list');
+
+      $rootScope.clearHistory();
+      $rootScope.$digest();
+    });
+
   });
 
 });
