@@ -24,9 +24,11 @@ module.exports = function (grunt) {
     appName: 'YoAngularCordova',
     appPackage: 'com.sample.YoAngularCordova',
     plugins: [
-      'https://github.com/j-mcnally/cordova-statusTap'
+      'https://github.com/j-mcnally/cordova-statusTap',
+      'org.apache.cordova.statusbar'
     ],
-    platforms: ['ios', 'android']
+    platforms: ['ios', 'android'],
+    statusBarBackgroundColor: '#388E3C' // Should be the 700 color for your main color http://www.google.com/design/spec/style/color.html#color-color-palette
   };
 
   // Define the configuration for all the tasks
@@ -473,7 +475,7 @@ module.exports = function (grunt) {
 
     var StatusBarBackgroundColor = doc.createElement('preference');
     StatusBarBackgroundColor.setAttribute('name', 'StatusBarBackgroundColor');
-    StatusBarBackgroundColor.setAttribute('value', '#388E3C'); // Should be the 700 color for your main color http://www.google.com/design/spec/style/color.html#color-color-palette
+    StatusBarBackgroundColor.setAttribute('value', appConfig.statusBarBackgroundColor);
     grunt.log.writeln('Adding: ' + StatusBarBackgroundColor);
     node.appendChild(StatusBarBackgroundColor);
 
