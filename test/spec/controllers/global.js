@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Controller: MainCtrl', function () {
+describe('Controller: GlobalCtrl', function () {
 
   // load the controller's module
   beforeEach(module('yoAngularCordovaApp'));
@@ -17,10 +17,10 @@ describe('Controller: MainCtrl', function () {
   }));
 
   it('should attach a list of awesomeThings to the scope', function () {
-    expect(scope.searchActive).toBe(false);
+    expect(scope.searchModel.searchActive).toBe(false);
     scope.showSearch();
-    expect(scope.searchActive).toBe(true);
+    expect(scope.searchModel.searchActive).toBe(true);
     scope.disableSearch();
-    expect(scope.searchActive).toBe(false);
+    expect(scope.searchModel.searchActive).toBe(false);
   });
 });

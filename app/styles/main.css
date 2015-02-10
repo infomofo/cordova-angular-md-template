@@ -1,3 +1,31 @@
 .noscroll {
   overflow: hidden;
 }
+
+.toolbar-item {
+  -webkit-transition: all linear 0.5s;
+  transition: all linear 0.5s;
+  max-width:100%;
+  overflow-x: hidden;
+  white-space: nowrap;
+}
+
+.toolbar-item.ng-hide {
+  max-width:0;
+}
+
+.toolbar-item.ng-enter, .toolbar-item.ng-leave {
+  -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+}
+
+.toolbar-item.ng-enter,
+.toolbar-item.ng-leave.ng-leave-active {
+  max-width:0;
+}
+
+.toolbar-item.ng-leave,
+.toolbar-item.ng-enter.ng-enter-active {
+  opacity:1;
+  max-width:100%;
+}

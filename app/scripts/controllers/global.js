@@ -10,7 +10,10 @@
 angular.module('yoAngularCordovaApp')
   .controller('GlobalCtrl', function ($scope, $rootScope, $mdSidenav, $mdToast){
 
-  $scope.searchActive = false;
+  $scope.searchModel = {
+    searchActive: false,
+    searchQuery: null
+  };
 
   $scope.clickNav = function() {
     // Publish an event that can be handled by directives
@@ -48,10 +51,19 @@ angular.module('yoAngularCordovaApp')
       });
   };
 
+  $scope.executeSearch = function() {
+    var path = '/search/' + $scope.searchModel.searchQuery;
+    console.debug('go to path ' + path);
+    $scope.disableSearch();
+    // lose focus on search bar
+    $rootScope.go(path);
+  };
+
   $scope.disableSearch = function() {
     //var searchBox = angular.element('#searchBox');
     //searchBox.blur();
-    $scope.searchActive = false;
+    $scope.searchModel.searchActive = false;
+    $scope.searchModel.searchQuery = null;
   };
 
   /**
@@ -93,7 +105,15 @@ angular.module('yoAngularCordovaApp')
   $scope.showSearch = function() {
     //var searchBox = angular.element('#searchBox');
     //searchBox.focus();
-    $scope.searchActive = true;
+    $scope.searchModel.searchActive = true;
+  };
+
+  $scope.toggleSearch = function() {
+    if ($scope.searchModel.searchActive) {
+      $scope.disableSearch();
+    } else {
+      $scope.showSearch();
+    }
   };
 
   /**
