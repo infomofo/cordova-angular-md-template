@@ -28,8 +28,7 @@
 <div ng-include="'views/sidenav.html'"></div>
 <div layout="column" layout-fill flex>
   <div ng-include="'views/toolbar.html'"></div>
-  <md-content layout="column" layout-fill flex>
-    <div layout-align="center center" ng-view="" layout-fill flex></div>
+  <md-content layout="column" layout-fill flex ng-view layout="center center" scroll-to-top-on-nav-click>
   </md-content>
 </div>
 <!-- build:js(.) scripts/oldieshim.js -->
@@ -55,6 +54,7 @@
 
 <!-- build:js({.tmp,app}) scripts/scripts.js -->
 <script src="scripts/app.js"></script>
+<script src="scripts/directives/scrolltotoponnavclick.js"></script>
 <script src="scripts/rootscope.js"></script>
 <script src="scripts/controllers/global.js"></script>
 <script src="scripts/controllers/main.js"></script>

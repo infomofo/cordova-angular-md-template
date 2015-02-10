@@ -386,6 +386,15 @@ module.exports = function (grunt) {
               }
           }
       },
+      cordovaInstallPlugins: {
+        command: 'cordova plugin add https://github.com/j-mcnally/cordova-statusTap',
+        options: {
+          stderr: false,
+          execOptions: {
+            cwd: '<%= yeoman.cordova %>'
+          }
+        }
+      },
       cordovaPlatformInstallAndroid: {
           command: 'cordova platform add android',
           options: {
@@ -397,6 +406,15 @@ module.exports = function (grunt) {
       },
       cordovaPlatformInstallIos: {
         command: 'cordova platform add ios',
+        options: {
+          stderr: false,
+          execOptions: {
+            cwd: '<%= yeoman.cordova %>'
+          }
+        }
+      },
+      cordovaBuild: {
+        command: 'cordova build',
         options: {
           stderr: false,
           execOptions: {
@@ -515,6 +533,8 @@ module.exports = function (grunt) {
       'shell:cordovaCreate',
       'addCordovaPreferences',
       'shell:cordovaPlatformInstallAndroid',
-      'shell:cordovaPlatformInstallIos'
+      'shell:cordovaPlatformInstallIos',
+      'shell:cordovaInstallPlugins',
+      'shell:cordovaBuild'
     ]);
 };

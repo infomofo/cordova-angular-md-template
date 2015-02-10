@@ -12,6 +12,12 @@ angular.module('yoAngularCordovaApp')
 
   $scope.searchActive = false;
 
+  $scope.clickNav = function() {
+    // Publish an event that can be handled by directives
+    //console.log("nav clicked");
+    $rootScope.$emit('NavClicked');
+  };
+
   /**
    * Closes the mdSidenav and handles any related behavior
    */

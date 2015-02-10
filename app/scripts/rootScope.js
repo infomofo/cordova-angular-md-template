@@ -86,15 +86,4 @@ angular.module('yoAngularCordovaApp')
     $location.path(url);
   };
 
-  /**
-   * Handles the event of clicking on the nav bar- this is a common application convention that will make the active
-   * scrollable container scroll to the top.
-   */
-  $rootScope.$on('NavClicked', function() {
-    var domElement = document.getElementById('scrollcontainer');
-    domElement.style.overflow = 'hidden';
-    // wait for any current momentum scrolling to finish and then jump to top
-    //$('#scrollcontainer').animate({scrollTop: 0}, 'fast');
-    domElement.style.overflow = '';
-  });
 });
