@@ -20,7 +20,8 @@ module.exports = function (grunt) {
     app: require('./bower.json').appPath || 'app',
     dist: 'dist',
     cordova: 'cordova',
-    appName: 'YoAngularCordova'
+    appName: 'YoAngularCordova',
+    appPackage: 'com.sample.YoAngularCordova'
   };
 
   // Define the configuration for all the tasks
@@ -369,61 +370,76 @@ module.exports = function (grunt) {
         singleRun: true
       }
     },
-
+    cordovacli: {
+      options: {
+        path: '<%= yeoman.cordova %>',
+        id: '<%= yeoman.appPackage %>',
+        name: '<%= yeoman.appName %>',
+        platforms: ['ios', 'android']
+      },
+      cordova: {
+        options: {
+          command: ['create','platform','plugin','build'],
+        }
+      },
+      create: {
+        options: {
+          command: 'create',
+          args: ['--copy-from=<%= yeoman.dist %>']
+        }
+      },
+      addPlatforms: {
+        options: {
+          command: 'platform',
+          action: 'add'
+        }
+      },
+      addPlugins: {
+        options: {
+          command: 'plugin',
+          action: 'add',
+          plugins: [
+            'https://github.com/j-mcnally/cordova-statusTap'
+          ]
+        }
+      },
+      build: {
+        options: {
+          command: 'build'
+        }
+      },
+      emulateAndroid: {
+        options: {
+          command: 'emulate',
+          platforms: ['android']
+        }
+      },
+      emulateIos: {
+        options: {
+          command: 'emulate',
+          platforms: ['ios']
+        }
+      },
+      runAndroid: {
+        options: {
+          command: 'run',
+          platforms: ['android']
+        }
+      },
+      runIos: {
+        options: {
+          command: 'run',
+          platforms: ['ios']
+        }
+      }
+    },
     shell: {
       cordovaClean: {
         command: 'rm -Rf <%= yeoman.cordova %>'
-      },
-      cordovaCreate: {
-          command: 'cordova create <%= yeoman.cordova %> com.sample.<%= yeoman.appName %> "<%= yeoman.appName %>" --copy-from=<%= yeoman.dist %>'
-      },
-      cordovaPrepare: {
-          command: 'cordova prepare',
-          options: {
-              stderr: false,
-              execOptions: {
-                  cwd: '<%= yeoman.cordova %>'
-              }
-          }
-      },
-      cordovaInstallPlugins: {
-        command: 'cordova plugin add https://github.com/j-mcnally/cordova-statusTap',
-        options: {
-          stderr: false,
-          execOptions: {
-            cwd: '<%= yeoman.cordova %>'
-          }
-        }
-      },
-      cordovaPlatformInstallAndroid: {
-          command: 'cordova platform add android',
-          options: {
-              stderr: false,
-              execOptions: {
-                  cwd: '<%= yeoman.cordova %>'
-              }
-          }
-      },
-      cordovaPlatformInstallIos: {
-        command: 'cordova platform add ios',
-        options: {
-          stderr: false,
-          execOptions: {
-            cwd: '<%= yeoman.cordova %>'
-          }
-        }
-      },
-      cordovaBuild: {
-        command: 'cordova build',
-        options: {
-          stderr: false,
-          execOptions: {
-            cwd: '<%= yeoman.cordova %>'
-          }
-        }
       }
     }
   });
+  grunt.loadNpmTasks('grunt-cordovacli');
 
   //var xpath = require('xpath');
   var DOMParser = require('xmldom').DOMParser;
@@ -530,11 +546,10 @@ module.exports = function (grunt) {
     [
       'build',
       'shell:cordovaClean',
-      'shell:cordovaCreate',
+      'cordovacli:create',
       'addCordovaPreferences',
-      'shell:cordovaPlatformInstallAndroid',
-      'shell:cordovaPlatformInstallIos',
-      'shell:cordovaInstallPlugins',
-      'shell:cordovaBuild'
+      'cordovacli:addPlatforms',
+      'cordovacli:addPlugins',
+      'cordovacli:build'
     ]);
 };
