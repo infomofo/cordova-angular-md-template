@@ -25,26 +25,22 @@ To build a cordova app
 ---------------------
 
 1. npm install
-2. bower install
-3. grunt cordova
+2. grunt 
 
 To run on android
 -----------------
 
-1. cd cordova
-2. cordova run android
+     grunt cordovacli:runAndroid
 
 To emulate on ios
 -----------------
 
-1. cd cordova
-2. cordova emulate ios
+     grunt cordovacli:emulateIos
 
 To run on ios
 -------------
 
-1. cd cordova
-2. cordova run ios
+     grunt cordovacli:runIos
 
 Directory Structure
 -------------------
