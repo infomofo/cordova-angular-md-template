@@ -20,6 +20,25 @@ Sample screenshots
 ![A Demo Material-Angular App running on Android](docs/images/AndroidAppSlideNav.png)
 ![A Form running in Android](docs/images/AndroidFormNumberInput.png)
 
+Dependencies
+------------
+
+You may need to run some of the following to get all the dependencies for this application
+
+   * npm install -g grunt-cli
+   * npm install -g bower
+   * npm install -g cordova
+   
+For ios development you will need the following
+   
+   * npm install -g ios-deploy
+   * npm install -g ios-sim
+
+For android development you will need
+
+   * brew install android
+   * android 
+       * download packages and set up an android device for emulation
 
 To build a cordova app
 ---------------------
