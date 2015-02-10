@@ -14,7 +14,6 @@ angular.module('yoAngularCordovaApp')
 
   $scope.clickNav = function() {
     // Publish an event that can be handled by directives
-    //console.log("nav clicked");
     $rootScope.$emit('NavClicked');
   };
 
@@ -24,7 +23,6 @@ angular.module('yoAngularCordovaApp')
   $scope.closeSideNav = function(){
     $mdSidenav('left').close()
       .then(function(){
-        //console.debug("toggle left is done");
       });
   };
 
@@ -41,10 +39,8 @@ angular.module('yoAngularCordovaApp')
 
   $scope.openSidenav = function() {
     $mdToast.hide();
-    console.log('toggling left');
     $mdSidenav('left').open()
       .then(function(){
-        console.debug('toggle left is done');
       });
   };
 
@@ -60,7 +56,6 @@ angular.module('yoAngularCordovaApp')
   $scope.closeSideNav = function(){
     $mdSidenav('left').close()
       .then(function(){
-        //console.debug("toggle left is done");
       });
   };
 

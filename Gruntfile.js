@@ -15,13 +15,18 @@ module.exports = function (grunt) {
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
 
-  // Configurable paths for the application
   var appConfig = {
     app: require('./bower.json').appPath || 'app',
     dist: 'dist',
     cordova: 'cordova',
+
+    // The following variables can be customized for an application that forks this repo
     appName: 'YoAngularCordova',
-    appPackage: 'com.sample.YoAngularCordova'
+    appPackage: 'com.sample.YoAngularCordova',
+    plugins: [
+      'https://github.com/j-mcnally/cordova-statusTap'
+    ],
+    platforms: ['ios', 'android']
   };
 
   // Define the configuration for all the tasks
@@ -375,7 +380,7 @@ module.exports = function (grunt) {
         path: '<%= yeoman.cordova %>',
         id: '<%= yeoman.appPackage %>',
         name: '<%= yeoman.appName %>',
-        platforms: ['ios', 'android']
+        platforms: appConfig.platforms
       },
       cordova: {
         options: {
@@ -398,9 +403,7 @@ module.exports = function (grunt) {
         options: {
           command: 'plugin',
           action: 'add',
-          plugins: [
-            'https://github.com/j-mcnally/cordova-statusTap'
-          ]
+          plugins: appConfig.plugins
         }
       },
       build: {
