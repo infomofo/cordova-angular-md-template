@@ -15,11 +15,9 @@ module.exports = function (grunt) {
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
 
-  var appConfig = {
-    app: require('./bower.json').appPath || 'app',
-    dist: 'dist',
-    cordova: 'cordova',
+  var extend = require('extend');
 
+  var customConfig = {
     // The following variables can be customized for an application that forks this repo
     appName: 'YoAngularCordova',
     appPackage: 'com.sample.YoAngularCordova',
@@ -30,6 +28,13 @@ module.exports = function (grunt) {
     platforms: ['ios', 'android'],
     statusBarBackgroundColor: '#388E3C' // Should be the 700 color for your main color http://www.google.com/design/spec/style/color.html#color-color-palette
   };
+
+  var appConfig = extend (true,
+    {
+      app: require('./bower.json').appPath || 'app',
+      dist: 'dist',
+      cordova: 'cordova'
+    }, customConfig);
 
   // Define the configuration for all the tasks
   grunt.initConfig({

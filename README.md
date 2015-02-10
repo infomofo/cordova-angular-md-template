@@ -71,18 +71,16 @@ an application of your own using this repository as the backbone.  One suggested
     - alternately, duplicate this repository and add this repo as an upstream ref
 2. Modify the section of Gruntfile.js that looks like this:
 
-         var appConfig = {
-           app: require('./bower.json').appPath || 'app',
-           dist: 'dist',
-           cordova: 'cordova',
-       
+         var customConfig = {
            // The following variables can be customized for an application that forks this repo
            appName: 'YoAngularCordova',
            appPackage: 'com.sample.YoAngularCordova',
            plugins: [
-             'https://github.com/j-mcnally/cordova-statusTap'
+             'https://github.com/j-mcnally/cordova-statusTap',
+             'org.apache.cordova.statusbar'
            ],
-           platforms: ['ios', 'android']
+           platforms: ['ios', 'android'],
+           statusBarBackgroundColor: '#388E3C' // Should be the 700 color for your main color http://www.google.com/design/spec/style/color.html#color-color-palette
          };
 
     Specifically, it is important to have a unique appPackage and recommended to have a unique appName.  You will also
