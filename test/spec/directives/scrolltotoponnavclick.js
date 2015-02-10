@@ -5,16 +5,22 @@ describe('Directive: scrollToTopOnNavClick', function () {
   // load the directive's module
   beforeEach(module('yoAngularCordovaApp'));
 
-  var element,
-    scope;
+  var scope, element;
 
   beforeEach(inject(function ($rootScope) {
     scope = $rootScope.$new();
   }));
 
-  it('should make hidden element visible', inject(function ($compile) {
-    element = angular.element('<scroll-to-top-on-nav-click></scroll-to-top-on-nav-click>');
+  it('should scroll to top when NavClicked is detected', inject(function ($compile) {
+    element = angular.element('<div scroll-to-top-on-nav-click>div</div>');
     element = $compile(element)(scope);
-    expect(element.text()).toBe('this is the scrollToTopOnNavClick directive');
+    //element.scrollTop(10);
+    //expect(element[0].scrollTop()).toBe(10);
+
+    inject(function($rootScope) {
+      $rootScope.$emit('NavClicked');
+      $rootScope.$digest();
+      //expect(element[0].scrollTop()).toBe(0);
+    });
   }));
 });

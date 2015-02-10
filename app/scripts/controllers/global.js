@@ -14,7 +14,7 @@ angular.module('yoAngularCordovaApp')
 
   $scope.clickNav = function() {
     // Publish an event that can be handled by directives
-//    console.log("nav clicked");
+    //console.log("nav clicked");
     $rootScope.$emit('NavClicked');
   };
 
