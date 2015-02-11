@@ -26,9 +26,9 @@
 <![endif]-->
 
 <div ng-include="'views/sidenav.html'" class="md-whiteframe-z3"></div>
-<div layout="column" layout-fill flex>
+<div layout="column" layout-fill flex class="noscroll">
   <div ng-include="'views/toolbar.html'"></div>
-  <md-content layout="column" layout-fill flex ng-view layout="center center" scroll-to-top-on-nav-click>
+  <md-content layout="column" layout-fill flex ng-view layout="center center" scroll-to-top-on-nav-click class="page">
   </md-content>
 </div>
 <!-- build:js(.) scripts/oldieshim.js -->
