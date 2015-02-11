@@ -9,6 +9,7 @@
  */
 angular.module('yoAngularCordovaApp')
   .controller('MainCtrl', function ($scope) {
+    console.log('test');
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',

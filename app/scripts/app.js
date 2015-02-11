@@ -35,6 +35,10 @@ app
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
+      .when('/pulltorefresh', {
+        templateUrl: 'views/pulltorefresh.html',
+        controller: 'PullToRefreshCtrl'
+      })
       .when('/about', {
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'

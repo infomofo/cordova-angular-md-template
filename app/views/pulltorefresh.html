@@ -1,0 +1,28 @@
+<md-content flex layout-fill pull-to-refresh refresh-function="refreshFunction()">
+  <div layout-margin>
+    <h1>Pull to Refresh</h1>
+    <p>
+      This pane demonstrates a pull-to-refresh gesture. Pulling down on this app will trigger a callback called
+      "refreshFunction" that will wait for 2 seconds and then
+      add a random quote to the top of this list.  While it is refreshing, a material design progress bar will display
+      at the top of the content area.
+    </p>
+    <md-list>
+      <md-item ng-repeat="item in listItems" class="quote">
+        <md-item-content>
+          <div class="md-tile-left">
+            <i class="fa fa-4x fa-fw fa-{{item.icon}}"></i>
+          </div>
+          <div class="md-tile-content">
+            <label ng-bind="item.time"></label>
+            <p ng-bind="item.text">
+            </p>
+          </div>
+        </md-item-content>
+        <md-divider inset></md-divider>
+      </md-item>
+    </md-list>
+
+  </div>
+
+</md-content>
