@@ -28,6 +28,7 @@ module.exports = function(config) {
       'bower_components/angular-touch/angular-touch.js',
       'bower_components/angular-material/angular-material.js',
       'bower_components/angular-aria/angular-aria.js',
+      'bower_components/angular-md-pull-to-refresh/angular-md-pull-to-refresh.js',
       'app/scripts/**/*.js',
       'test/mock/**/*.js',
       'test/spec/**/*.js'

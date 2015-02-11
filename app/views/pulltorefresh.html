@@ -1,6 +1,8 @@
 <md-content flex layout-fill pull-to-refresh refresh-function="refreshFunction()" scroll-to-top-on-nav-click>
   <div layout-margin>
     <h1>Pull to Refresh</h1>
+    <p ng-if="isTouchDevice">on a touch device</p>
+    <p ng-if="!isTouchDevice">on a non-touch device</p>
     <p>
       This pane demonstrates a pull-to-refresh gesture. Pulling down on this app will trigger a callback called
       "refreshFunction" that will wait for 2 seconds and then

@@ -66,5 +66,5 @@ md-toolbar {
   to      { transform: translateY(0); }
 }
 
-.page.ng-enter           { animation: slideInRight 0.25s both ease-in; z-index: 1; }
+.page.ng-enter .quote.ng-enter          { animation: slideInRight 0.25s both ease-in; z-index: 1; }
 .page.ng-leave           { animation: slideOutRight 0.25s both ease-in; z-index: 0; }
