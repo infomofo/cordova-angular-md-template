@@ -13,7 +13,7 @@ md-toolbar {
 }
 
 .page {
-  min-height:100%;
+  /*min-height:100%;*/
   position:absolute;
   z-index: 0;
   margin-top:63px;
@@ -65,5 +65,5 @@ md-toolbar {
   to      { transform: translateY(0); }
 }
 
-.page.ng-enter           { animation: slideInRight 0.5s both ease-in; z-index: 1; }
-.page.ng-leave           { animation: slideOutRight 0.5s both ease-in; z-index: 0; }
+.page.ng-enter           { animation: slideInRight 0.25s both ease-in; z-index: 1; }
+.page.ng-leave           { animation: slideOutRight 0.25s both ease-in; z-index: 0; }

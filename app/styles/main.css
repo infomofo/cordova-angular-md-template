@@ -1,4 +1,6 @@
 .noscroll {
   overflow: hidden;
+  position: absolute;
+  top:0;
 }
 
