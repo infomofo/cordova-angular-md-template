@@ -22,7 +22,8 @@ var app = angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'ngMaterial'
+    'ngMaterial',
+    'angularMdPullToRefresh'
   ]);
 
 app

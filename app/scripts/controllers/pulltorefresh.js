@@ -9,7 +9,6 @@
  */
 angular.module('yoAngularCordovaApp')
   .controller('PullToRefreshCtrl', function ($scope, $q) {
-    console.log('test pull to refresh controller');
 
 
     $scope.listItems = [];
@@ -486,7 +485,6 @@ angular.module('yoAngularCordovaApp')
         randomItem();
         deferred.resolve(true);
       }, 2000);
-      console.log('controller: pulling to refresh');
       return deferred.promise;
     };
   });
