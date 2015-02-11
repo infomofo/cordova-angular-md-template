@@ -400,7 +400,7 @@ angular.module('yoAngularCordovaApp')
 'Lucille: She’s awful. Can barely wash a dish.',
 'Lindsay: (loudly) Well, how embarrassing. My own brother buying me? I\'d rather die. (whispers to Michael) Thank you. Maybe you\'re not that selfish.',
 
-'at the prison]',
+'[at the prison]',
 'Barry Zuckerkorn: Are all the guys in here... you know? [referencing gay inmates]',
 'George Sr.: Oh, no, no. No, not all of them.',
 'Barry Zuckerkorn: Yeah. It\'s never the ones you hope.',
@@ -411,7 +411,7 @@ angular.module('yoAngularCordovaApp')
 'Lucille: Because that\'s what she said she\'d do. I said you wouldn\'t give her the money, and she said, "He will if I get him drunk." Probably because she thinks you\'re a cheap bastard. Oh... her words.',
 'Wayne Jarvis: I use one adjective to describe myself, what is it?',
 'Michael: Professional.',
-'Jarvis shakes head and walks out]',
+'[Jarvis shakes head and walks out]',
 'Michael: Did I just wake you up? I didn’t even know you were home.',
 'Lindsay: No, Michael, I don’t just sleep all day.',
 'Narrator: Actually, Lindsay was so upset at Michael that she tried meditating to calm herself but ended up taking a two-hour angry nap.',
@@ -430,7 +430,7 @@ angular.module('yoAngularCordovaApp')
 'Michael: It was this morning.',
 'Lucille: You\'re my third least favorite child.',
 'Michael: I can live with that.',
-'Speaking of the surprise party for Lucille]',
+'[Speaking of the surprise party for Lucille]',
 'Maeby: We [George Michael and Maeby] don\'t have to go, do we?',
 'Michael: This is a Bluth family celebration. It\'s no place for children.',
 'Michael: I can\'t believe she got that driver\'s license renewed.',
@@ -459,9 +459,10 @@ angular.module('yoAngularCordovaApp')
 'Rollo: If you care about your brother, you\'ll get in this car.',
 'Michael: Which brother?',
 'Rollo: Gob.',
-'Michael leaves]',
+'[Michael leaves]',
 'Lucille: You\'re the only one who chose a spouse I liked and she had to die.',
 'Michael: I know, that\'s rough for you.'
+
     ];
 
     var random = function(elementArray) {
