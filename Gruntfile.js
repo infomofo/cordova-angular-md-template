@@ -529,7 +529,6 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('build', [
-    'bower:install',
     'clean:dist',
     'wiredep',
     'useminPrepare',
@@ -548,13 +547,14 @@ module.exports = function (grunt) {
 
   grunt.registerTask('default', [
     'newer:jshint',
+    'bower:install',
     // 'test',
+    'build',
     'cordova'
   ]);
 
   grunt.registerTask('cordova',
     [
-      'build',
       'shell:cordovaClean',
       'cordovacli:create',
       'addCordovaPreferences',

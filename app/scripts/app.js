@@ -22,7 +22,8 @@ var app = angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'ngMaterial'
+    'ngMaterial',
+    'infomofo.angularMdPullToRefresh'
   ]);
 
 app
@@ -34,6 +35,10 @@ app
       .when('/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
+      })
+      .when('/pulltorefresh', {
+        templateUrl: 'views/pulltorefresh.html',
+        controller: 'PullToRefreshCtrl'
       })
       .when('/about', {
         templateUrl: 'views/about.html',
