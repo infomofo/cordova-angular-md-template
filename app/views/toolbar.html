@@ -1,5 +1,5 @@
-<md-toolbar class="md-primary" md-scroll-shrink="false" layout-align="center center" ng-click="clickNav()">
-  <div class="md-toolbar-tools" layout="row" layout-align="space-between center">
+<md-toolbar class="md-primary" md-scroll-shrink="false" layout-align="center end" ng-click="clickNav()">
+  <div class="md-toolbar-tools" layout="row" layout-align="space-between end">
     <div layout-align="center center" ng-if="!searchModel.searchActive" class="toolbar-item">
       <md-button ng-click="openSidenav()" class="md-accent" hide-gt-md aria-label="toggles the sidenav">
         <i class="fa fa-2x fa-align-justify"></i>
@@ -9,9 +9,9 @@
     <md-button ng-click="toggleSearch()" class="md-accent" aria-label="toggles the search field">
       <i class="fa fa-2x fa-search"></i>
     </md-button>
-    <div class="toolbar-item" ng-if="searchModel.searchActive" layout-fill flex layout="row" md-no-ink>
+    <div class="toolbar-item" ng-if="searchModel.searchActive" layout-fill flex layout="row" md-no-ink layout-align="center end">
       <form ng-submit="executeSearch()" layout-fill flex>
-        <md-input-container flex class="md-accent">
+        <md-input-container flex class="md-accent search-box">
           <label>Search term</label>
           <input id="searchBox" autofocus type="search" ng-model="searchModel.searchQuery" class="md-accent"/>
         </md-input-container>

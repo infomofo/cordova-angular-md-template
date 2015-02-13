@@ -81,7 +81,6 @@ angular.module('yoAngularCordovaApp')
 
     $mdSidenav('left').close()
       .then(function(){
-        //console.debug("toggle left is done");
       });
     $location.path(url);
   };

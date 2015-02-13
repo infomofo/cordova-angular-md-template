@@ -10,6 +10,7 @@
   <!-- bower:css -->
   <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
   <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+  <link rel="stylesheet" href="bower_components/angular-md-pull-to-refresh/angular-md-pull-to-refresh.css" />
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:css(.tmp) styles/main.css -->
@@ -26,9 +27,10 @@
 <![endif]-->
 
 <div ng-include="'views/sidenav.html'" class="md-whiteframe-z3"></div>
-<div layout="column" layout-fill flex>
+<div layout="column" layout-fill flex class="noscroll">
   <div ng-include="'views/toolbar.html'"></div>
-  <md-content layout="column" layout-fill flex ng-view layout="center center" scroll-to-top-on-nav-click>
+  <div ng-if="searchModel.searchActive" class="search-overlay" ng-click="searchModel.searchActive = false"></div>
+  <md-content layout="column" layout-fill flex ng-view layout="center center" scroll-to-top-on-nav-click class="page">
   </md-content>
 </div>
 <!-- build:js(.) scripts/oldieshim.js -->
@@ -49,6 +51,7 @@
 <script src="bower_components/angular-touch/angular-touch.js"></script>
 <script src="bower_components/angular-aria/angular-aria.js"></script>
 <script src="bower_components/angular-material/angular-material.js"></script>
+<script src="bower_components/angular-md-pull-to-refresh/angular-md-pull-to-refresh.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 
@@ -60,6 +63,7 @@
 <script src="scripts/controllers/main.js"></script>
 <script src="scripts/controllers/about.js"></script>
 <script src="scripts/controllers/search.js"></script>
+<script src="scripts/controllers/pulltorefresh.js"></script>
 <!-- endbuild -->
 </body>
 </html>

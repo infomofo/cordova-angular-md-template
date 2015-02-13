@@ -15,14 +15,26 @@ module.exports = function (grunt) {
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
 
-  // Configurable paths for the application
-  var appConfig = {
-    app: require('./bower.json').appPath || 'app',
-    dist: 'dist',
-    cordova: 'cordova',
+  var extend = require('extend');
+
+  var customConfig = {
+    // The following variables can be customized for an application that forks this repo
     appName: 'YoAngularCordova',
-    appPackage: 'com.sample.YoAngularCordova'
+    appPackage: 'com.sample.YoAngularCordova',
+    plugins: [
+      'https://github.com/j-mcnally/cordova-statusTap',
+      'org.apache.cordova.statusbar'
+    ],
+    platforms: ['ios', 'android'],
+    statusBarBackgroundColor: '#388E3C' // Should be the 700 color for your main color http://www.google.com/design/spec/style/color.html#color-color-palette
   };
+
+  var appConfig = extend (true,
+    {
+      app: require('./bower.json').appPath || 'app',
+      dist: 'dist',
+      cordova: 'cordova'
+    }, customConfig);
 
   // Define the configuration for all the tasks
   grunt.initConfig({
@@ -375,7 +387,7 @@ module.exports = function (grunt) {
         path: '<%= yeoman.cordova %>',
         id: '<%= yeoman.appPackage %>',
         name: '<%= yeoman.appName %>',
-        platforms: ['ios', 'android']
+        platforms: appConfig.platforms
       },
       cordova: {
         options: {
@@ -398,9 +410,7 @@ module.exports = function (grunt) {
         options: {
           command: 'plugin',
           action: 'add',
-          plugins: [
-            'https://github.com/j-mcnally/cordova-statusTap'
-          ]
+          plugins: appConfig.plugins
         }
       },
       build: {
@@ -470,7 +480,7 @@ module.exports = function (grunt) {
 
     var StatusBarBackgroundColor = doc.createElement('preference');
     StatusBarBackgroundColor.setAttribute('name', 'StatusBarBackgroundColor');
-    StatusBarBackgroundColor.setAttribute('value', '#388E3C'); // Should be the 700 color for your main color http://www.google.com/design/spec/style/color.html#color-color-palette
+    StatusBarBackgroundColor.setAttribute('value', appConfig.statusBarBackgroundColor);
     grunt.log.writeln('Adding: ' + StatusBarBackgroundColor);
     node.appendChild(StatusBarBackgroundColor);
 
@@ -519,7 +529,6 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('build', [
-    'bower:install',
     'clean:dist',
     'wiredep',
     'useminPrepare',
@@ -538,13 +547,14 @@ module.exports = function (grunt) {
 
   grunt.registerTask('default', [
     'newer:jshint',
+    'bower:install',
     // 'test',
+    'build',
     'cordova'
   ]);
 
   grunt.registerTask('cordova',
     [
-      'build',
       'shell:cordovaClean',
       'cordovacli:create',
       'addCordovaPreferences',
