@@ -468,7 +468,7 @@ angular.module('yoAngularCordovaApp')
     var random = function(elementArray) {
       return elementArray[Math.floor(Math.random()*elementArray.length)];
     };
-    var randomItem = function() {
+    $scope.randomItem = function() {
       $scope.listItems.unshift({
         icon: random(icons),
         text: random(quotes),
@@ -477,13 +477,13 @@ angular.module('yoAngularCordovaApp')
     };
 
     for (var i = 0; i < 20; i++) {
-      randomItem();
+      $scope.randomItem();
     }
 
     $scope.refreshFunction = function() {
       var deferred = $q.defer();
       setTimeout(function() {
-        randomItem();
+        $scope.randomItem();
         deferred.resolve(true);
       }, 2000);
       return deferred.promise;

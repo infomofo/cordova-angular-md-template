@@ -1,14 +1,12 @@
 <md-content flex layout-fill im-pull-to-refresh refresh-function="refreshFunction()" scroll-to-top-on-nav-click>
-  <div layout-margin>
     <h1>Pull to Refresh</h1>
-    <p ng-if="isTouchDevice">on a touch device</p>
-    <p ng-if="!isTouchDevice">on a non-touch device</p>
-    <p>
+      <md-button ng-click="randomItem()" class="md-accent md-raised md-padding"><i class="fa fa-refresh"></i><br/>refresh</md-button>
+      <p>
       This pane demonstrates a pull-to-refresh gesture. Pulling down on this app will trigger a callback called
       "refreshFunction" that will wait for 2 seconds and then
       add a random quote to the top of this list.  While it is refreshing, a material design progress bar will display
       at the top of the content area.
-    </p>
+      </p>
     <md-list>
       <md-item ng-repeat="item in listItems" class="quote">
         <md-item-content>
@@ -25,6 +23,5 @@
       </md-item>
     </md-list>
 
-  </div>
 
 </md-content>
