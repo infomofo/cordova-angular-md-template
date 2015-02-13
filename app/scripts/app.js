@@ -23,7 +23,7 @@ var app = angular
     'ngSanitize',
     'ngTouch',
     'ngMaterial',
-    'angularMdPullToRefresh'
+    'infomofo.angularMdPullToRefresh'
   ]);
 
 app

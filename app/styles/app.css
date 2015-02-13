@@ -68,3 +68,4 @@ md-toolbar {
 
 .page.ng-enter .quote.ng-enter          { animation: slideInRight 0.25s both ease-in; z-index: 1; }
 .page.ng-leave           { animation: slideOutRight 0.25s both ease-in; z-index: 0; }
+
