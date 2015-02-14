@@ -1,9 +1,8 @@
 .noscroll {
   overflow: hidden;
-  position: absolute;
+  /*position: absolute;*/
   top:0;
 }
-
 .toolbar-item {
   -webkit-transition: all linear 0.5s;
   transition: all linear 0.5s;

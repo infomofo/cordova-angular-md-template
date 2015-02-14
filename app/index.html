@@ -19,7 +19,7 @@
   <link rel="stylesheet" href="styles/main.css">
   <!-- endbuild -->
 </head>
-<body layout="row" ng-app="yoAngularCordovaApp" ng-controller="GlobalCtrl">
+<body layout="row" ng-app="yoAngularCordovaApp" ng-controller="GlobalCtrl" class="noscroll">
 
 <!--[if lt IE 7]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
@@ -27,8 +27,8 @@
 <![endif]-->
 
 <div ng-include="'views/sidenav.html'" class="md-whiteframe-z3"></div>
-<div layout="column" layout-fill flex class="noscroll">
-  <div ng-include="'views/toolbar.html'"></div>
+<div layout="column" layout-fill flex>
+  <div ng-include="'views/toolbar.html'" layout-fill></div>
   <div ng-if="searchModel.searchActive" class="search-overlay" ng-click="searchModel.searchActive = false"></div>
   <md-content layout="column" layout-fill flex ng-view layout="center center" scroll-to-top-on-nav-click class="page">
   </md-content>

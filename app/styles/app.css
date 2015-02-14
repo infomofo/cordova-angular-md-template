@@ -29,59 +29,12 @@ md-toolbar {
 
 .page {
   /*min-height:100%;*/
-  position:absolute;
+  /*position:absolute;*/
   z-index: 0;
-  margin-top:63px;
+  /*margin-top:63px;*/
   top:0;
   bottom:0;
-  padding-bottom: 63px;
+  /*padding-bottom: 63px;*/
 }
-
-/* Page ANIMATIONS
-============================================================================= */
-
-/* leaving animations ----------------------------------------- */
-/* rotate and fall */
-@keyframes rotateFall {
-  0%      { transform: rotateZ(0deg); }
-  20%     { transform: rotateZ(10deg); animation-timing-function: ease-out; }
-  40%     { transform: rotateZ(17deg); }
-  60%     { transform: rotateZ(16deg); }
-  100%    { transform: translateY(100%) rotateZ(17deg); }
-}
-
-@keyframes slideOutLeft {
-  to      { transform: translateX(-100%); }
-}
-
-@keyframes slideOutRight {
-  to      { transform: translateX(100%); }
-}
-
-/* rotate out newspaper */
-@keyframes rotateOutNewspaper {
-  to      { transform: translateZ(-3000px) rotateZ(360deg); opacity: 0; }
-}
-
-/* entering animations --------------------------------------- */
-/* scale up */
-@keyframes scaleUp {
-  from    { opacity: 0.3; -webkit-transform: scale(0.8); }
-}
-
-/* slide in from the right */
-@keyframes slideInRight {
-  from    { transform:translateX(100%); }
-  to      { transform: translateX(0); }
-}
-
-/* slide in from the bottom */
-@keyframes slideInUp {
-  from    { transform:translateY(100%); }
-  to      { transform: translateY(0); }
-}
-
-.page.ng-enter .quote.ng-enter          { animation: slideInRight 0.25s both ease-in; z-index: 1; }
-.page.ng-leave           { animation: slideOutRight 0.25s both ease-in; z-index: 0; }
 
 
