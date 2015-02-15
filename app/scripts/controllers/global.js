@@ -8,7 +8,7 @@
  * Controller of the yoAngularCordovaApp
  */
 angular.module('yoAngularCordovaApp')
-  .controller('GlobalCtrl', function ($scope, $rootScope, $mdSidenav, $mdToast){
+  .controller('GlobalCtrl', function ($scope, $rootScope, $mdSidenav, $mdToast, $mdDialog){
 
   $scope.searchModel = {
     searchActive: false,
@@ -177,6 +177,27 @@ angular.module('yoAngularCordovaApp')
     $mdToast.show(toast).then(function() {
       callback(true);
     });
+  };
+
+  /**
+   * Displays an alert modal dialog
+   *
+   * Suitable for displaying short messages to the user
+   *
+   * @param title The title of the dialog box
+   * @param message The alert message to display to the user
+   * @param ev An event to animate the dialog box from
+   */
+  $scope.showAlertDialog = function(title, message, ev) {
+    console.log(ev);
+    $mdDialog.show(
+      $mdDialog.alert()
+        .title(title)
+        .content(message)
+        .ariaLabel('A modal dialog box: ' + message)
+        .ok('close')
+      //.targetEvent(ev)
+    );
   };
 
   var backButton = function() {
