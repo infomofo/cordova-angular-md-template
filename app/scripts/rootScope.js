@@ -28,25 +28,20 @@ angular.module('yoAngularCordovaApp')
     backFunction();
   };
 
-  var backButton = function() {
-    backFunction();
-    $rootScope.$apply();
-  };
 
   var onResume = function() {
     $rootScope.$emit('Resumed');
   };
 
-  var onDeviceReady = function(){
-    document.addEventListener('backbutton', backButton, false);
-    document.addEventListener('resume', onResume, false);
-    document.addEventListener('online', onResume, false);
-    // detect application touches and emit an event on rootscope:
-    window.addEventListener('statusTap', function() {
-      $rootScope.$emit('NavClicked');
-    });
-  };
-  document.addEventListener('deviceready', onDeviceReady, false);
+  //document.addEventListener("deviceready", function() {
+    console.log('deviceready');
+      document.addEventListener('resume', onResume, false);
+      document.addEventListener('online', onResume, false);
+      // detect application touches and emit an event on rootscope:
+      window.addEventListener('statusTap', function () {
+        $rootScope.$emit('NavClicked');
+      });
+    //});
 
   /**
    * Clears the known history

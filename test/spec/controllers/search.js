@@ -1,17 +1,17 @@
 'use strict';
 
-describe('Controller: MainCtrl', function () {
+describe('Controller: SearchCtrl', function () {
 
   // load the controller's module
   beforeEach(module('yoAngularCordovaApp'));
 
-  var MainCtrl,
+  var SearchCtrl,
     scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    MainCtrl = $controller('MainCtrl', {
+    SearchCtrl = $controller('SearchCtrl', {
       $scope: scope
     });
   }));

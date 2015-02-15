@@ -1,0 +1,14 @@
+<div layout-margin>
+<p>Searching for: <label>{{searchModel.query}}</label></p>
+<md-list>
+  <md-item ng-repeat="quote in quotes | filter: searchModel.query" class="quote">
+    <md-item-content>
+      <div class="md-tile-content">
+        <p ng-bind="quote">
+        </p>
+      </div>
+    </md-item-content>
+    <md-divider inset></md-divider>
+  </md-item>
+</md-list>
+</div>

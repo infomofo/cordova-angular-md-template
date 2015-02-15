@@ -56,6 +56,10 @@ app
       .when('/tabs', {
         templateUrl: 'views/tabs.html'
       })
+      .when('/search/:query', {
+        templateUrl: 'views/search.html',
+        controller: 'SearchCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
