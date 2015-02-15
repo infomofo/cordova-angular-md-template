@@ -21,7 +21,7 @@ var app = angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    //'ngTouch',
+    'ngTouch',
     'ngMaterial',
     'infomofo.angularMdPullToRefresh'
   ]);

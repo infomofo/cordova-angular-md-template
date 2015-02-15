@@ -179,4 +179,10 @@ angular.module('yoAngularCordovaApp')
     });
   };
 
+  var backButton = function() {
+    console.debug('back button');
+    $rootScope.backFunction();
+    $rootScope.$apply();
+  };
+  document.addEventListener('backbutton', backButton, false);
 });
