@@ -1,11 +1,21 @@
 <md-content class="md-padding" flex layout="column" layout-margin>
   <h3>Ways to display various messages to a user</h3>
 
-  <section layout="row" layout-align="center center" class="md-padding">
-    <md-button class="md-raised md-primary md-padding" ng-click="showAlertToast('Toasty!')">Toast</md-button>
-    <md-button class="md-raised md-primary" ng-click="showUndoToastPersistent('Toasty!')">Toast with Action</md-button>
-  </section>
-  <section layout="row" layout-align="center center">
+  <div class="inset" layout="row" layout-align="center center">
     <md-button class="md-raised md-primary" ng-click="showAlertDialog('AlertTitle', 'Alert Message!', $event)">Dialog</md-button>
-  </section>
+  </div>
+  <div layout="row" clsas="inset" layout-align="center center" layout-sm="column" layout-align="center center">
+    <md-button class="md-raised md-primary" ng-click="showAlertToast('Toasty!')">Toast</md-button>
+    <div style="width:50px;"></div>
+    <md-button class="md-raised md-primary" ng-click="showUndoToastPersistent('Toasty!')">Toast with Action</md-button>
+  </div>
+  <div class="bottom-sheet-demo inset" layout="row" layout-sm="column" layout-align="center center">
+    <md-button class="md-primary md-raised" ng-click="showListBottomSheet($event)">
+      Bottom Sheet List
+    </md-button>
+    <div style="width:50px;"></div>
+    <md-button class="md-primary md-raised" ng-click="showGridBottomSheet($event)">
+      Bottom Sheet Grid
+    </md-button>
+  </div>
 </md-content>

@@ -51,7 +51,8 @@ app
         templateUrl: 'views/form.html'
       })
       .when('/dialog', {
-        templateUrl: 'views/dialog.html'
+        templateUrl: 'views/dialog.html',
+        controller: 'DialogCtrl'
       })
       .when('/tabs', {
         templateUrl: 'views/tabs.html'
