@@ -2,12 +2,12 @@
   <div class="md-toolbar-tools" layout="row" layout-align="space-between end">
     <div layout-align="center center" ng-if="!searchModel.searchActive" class="toolbar-item">
       <md-button ng-click="openSidenav()" class="md-accent" hide-gt-md aria-label="toggles the sidenav">
-        <i class="fa fa-2x fa-align-justify"></i>
+        <md-icon md-font-icon="fa-align-justify" class="fa fa-2x"></md-icon>
       </md-button>
       <span>Cordova Angular MD App</span>
     </div>
     <md-button ng-click="toggleSearch()" class="md-accent" aria-label="toggles the search field">
-      <i class="fa fa-2x fa-search"></i>
+      <md-icon md-font-icon="fa-search" class="fa fa-2x"></md-icon>
     </md-button>
     <div class="toolbar-item" ng-if="searchModel.searchActive" layout-fill flex layout="row" md-no-ink layout-align="center end">
       <form ng-submit="executeSearch()" layout-fill flex>
@@ -16,9 +16,9 @@
           <input id="searchBox" autofocus type="search" ng-model="searchModel.searchQuery" class="md-accent"/>
         </md-input-container>
       </form>
-      <md-button ng-show="searchModel.searchQuery" class="md-accent" ng-click="searchModel.searchQuery=null">
-        <i class="fa fa-2x fa-times"></i>
-      </md-button>
     </div>
+    <md-button ng-show="searchModel.searchQuery && searchModel.searchActive" class="toolbar-item md-accent" ng-click="searchModel.searchQuery=null">
+      <md-icon md-font-icon="fa-times" class="fa fa-2x"></md-icon>
+    </md-button>
   </div>
 </md-toolbar>
