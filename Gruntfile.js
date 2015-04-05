@@ -42,16 +42,6 @@ module.exports = function (grunt) {
     // Project settings
     yeoman: appConfig,
 
-    bower: {
-      install: {
-        options: {
-          targetDir: './bower_components',
-          copy: false,
-          cleanTargetDir: true
-        }
-        //just run 'grunt bower:install' and you'll see files from your Bower packages in lib directory
-      }
-    },
     // Watches files for changes and runs tasks based on the changed files
     watch: {
       bower: {
@@ -520,7 +510,6 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('test', [
-    'bower:install',
     'clean:server',
     'concurrent:test',
     'autoprefixer',
@@ -547,7 +536,6 @@ module.exports = function (grunt) {
 
   grunt.registerTask('default', [
     'newer:jshint',
-    'bower:install',
     // 'test',
     'build',
     'cordova'
