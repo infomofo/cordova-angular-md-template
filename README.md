@@ -25,9 +25,7 @@ Dependencies
 
 You may need to run some of the following to get all the dependencies for this application
 
-   * npm install -g grunt-cli
-   * npm install -g bower
-   * npm install -g cordova
+   * npm install -g grunt-cli bower cordova
    
 For ios development you will need the following
    
