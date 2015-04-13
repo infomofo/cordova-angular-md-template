@@ -85,18 +85,19 @@ an application of your own using this repository as the backbone.  One suggested
 
     Specifically, it is important to have a unique appPackage and recommended to have a unique appName.  You will also
     want to replace any references to application name in package.json and bower.json with your application's name.
-    
-3. Modify the application scaffolding in app/views/sidenav.html, app/scripts/app.js, and the relevant controllers.  You
-may have to add/remove tests as necessary.  
 
-4. Periodically, you will want to pull any changes made from the upstream repository into your application.  [Here](https://stackoverflow.com/questions/3903817/pull-new-updates-from-original-github-repository-into-forked-github-repository/3903835#3903835) 
+3. Modify package.json and bower.json to replace the generic application name "yoangularcordova" with your application's name.
+    
+4. Modify the application scaffolding in app/views/sidenav.html, app/scripts/app.js, and the relevant controllers.  
+
+5. Periodically, you will want to pull any changes made from the upstream repository into your application.  [Here](https://stackoverflow.com/questions/3903817/pull-new-updates-from-original-github-repository-into-forked-github-repository/3903835#3903835) 
 is a detailed guide on various ways to do that.  I'd recommend using:
 
         git rebase upstream/master
         
     to replay your application's changes onto the template.
     
-5. If you make any core functionality changes or improvements to the app that you believe others would benefit from, 
+6. If you make any core functionality changes or improvements to the app that you believe others would benefit from, 
 I recommend forking the repo and making a pull request into the original so that others may benefit from it.
 
 Directory Structure
